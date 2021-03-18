@@ -20,7 +20,7 @@ const interval = setInterval(() => {
         log.message = 'Timeout. Cant reach external api';
         delete log.author;
       } else if(diceRoll < 0.7) {
-        log.level = 'warn'
+        log.level = logTypes[Math.floor(Math.random()*4)];
       }
     }
     const times = Math.floor(skewedNormalDistribution(0, 10, 3));
