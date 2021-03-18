@@ -14,9 +14,14 @@ const interval = setInterval(() => {
       message: quotes[quoteID].message,
       author: quotes[quoteID].author,
     };
-    if (level === 'error' && Math.random() > 0.8) {
-      log.message = 'Timeout. Cant reach external api';
-      delete log.author;
+    if (level === 'error') {
+      if(Math.random() > 0.8) {
+        log.message = 'Timeout. Cant reach external api';
+        delete log.author;
+      }
+      if(Math.random() < 0.3) {
+        log.level = 'warn'
+      }
     }
     const times = Math.floor(skewedNormalDistribution(0, 10, 3));
     for(_ of Array(times)) {
