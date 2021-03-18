@@ -15,11 +15,11 @@ const interval = setInterval(() => {
       author: quotes[quoteID].author,
     };
     if (level === 'error') {
-      if(Math.random() > 0.8) {
+      const diceRoll = Math.random();
+      if(diceRoll > 0.85) {
         log.message = 'Timeout. Cant reach external api';
         delete log.author;
-      }
-      if(Math.random() < 0.3) {
+      } else if(diceRoll < 0.7) {
         log.level = 'warn'
       }
     }
