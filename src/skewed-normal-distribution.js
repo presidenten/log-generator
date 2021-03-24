@@ -1,6 +1,7 @@
 
 // Skew normal distribution
 // https://stackoverflow.com/a/49434653/15763
+// https://jsfiddle.net/2uc346hp/
 module.exports = function randn_bm(min, max, skew) {
   let u = 0, v = 0;
   while(u === 0) u = Math.random() //Converting [0,1) to (0,1)
