@@ -15,7 +15,7 @@ const interval = setInterval(() => {
       author: quotes[quoteID].author,
       nested: {
         id: Math.round(Math.random()*1000000),
-        color: ['red', 'green', 'blue'][Math.round(Math.random()*3)],
+        color: ['red', 'green', 'blue'][Math.floor(Math.random()*3)],
         array: ['a', 'b', 'c', 'd', 'e'],
       },
       onPurpose: [true, false][Math.round(Math.random())],
