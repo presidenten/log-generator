@@ -13,12 +13,21 @@ const interval = setInterval(() => {
       level,
       message: quotes[quoteID].message,
       author: quotes[quoteID].author,
+      nested: {
+        id: Math.round(Math.random()*1000000),
+        color: ['red', 'green', 'blue'][Math.round(Math.random()*3)],
+        array: ['a', 'b', 'c', 'd', 'e'],
+      },
+      onPurpose: [true, false][Math.round(Math.random())],
     };
     if (level === 'error') {
       const diceRoll = Math.random();
       if(diceRoll > 0.85) {
         log.message = 'Timeout. Cant reach external api';
+        log.duration = Math.round(skewedNormalDistribution(100, 1200, 3.14))/10;
         delete log.author;
+        delete log.nested;
+        delete log.onPurpose;
       } else if(diceRoll < 0.7) {
         log.level = logTypes[Math.floor(Math.random()*4)];
       }
